@@ -430,7 +430,7 @@ footer.site-footer .big-word {
   .hero-sub { font-size: 16px; margin-bottom: 32px; }
   .hero-ctas { gap: 12px; width: 100%; }
   .hero-ctas .btn { flex: 1; justify-content: center; padding: 14px 20px; font-size: 14px; }
-  .hero-meta { position: static; padding: 24px 0 0; flex-direction: row; gap: 16px; }
+  .hero-meta {display: none; position: static; padding: 24px 0 0; flex-direction: row; gap: 16px; }
   .hero-meta .scroll-line { display: none; }
 
   .marquee { padding: 20px 0; }
