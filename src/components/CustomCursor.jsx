@@ -5,50 +5,79 @@ export default function CustomCursor() {
   const ringRef = useRef(null);
 
   useEffect(() => {
+    // Disable on touch devices
+    if (window.matchMedia('(hover: none)').matches) return;
+
     const dot = dotRef.current;
     const ring = ringRef.current;
     let mx = window.innerWidth / 2;
     let my = window.innerHeight / 2;
     let rx = mx, ry = my;
     let raf;
+    let visible = false;
+
+    const show = () => {
+      if (!visible) {
+        visible = true;
+        if (dot) dot.style.opacity = '1';
+        if (ring) ring.style.opacity = '1';
+      }
+    };
 
     const onMove = (e) => {
       mx = e.clientX;
       my = e.clientY;
-      if (dot) {
-        dot.style.left = mx + 'px';
-        dot.style.top = my + 'px';
-      }
+      show();
+      // Dot snaps instantly using GPU-accelerated transform
+      if (dot) dot.style.transform = `translate3d(${mx}px, ${my}px, 0) translate(-50%, -50%)`;
+    };
+
+    const onLeave = () => {
+      visible = false;
+      if (dot) dot.style.opacity = '0';
+      if (ring) ring.style.opacity = '0';
     };
 
     const loop = () => {
-      rx += (mx - rx) * 0.18;
-      ry += (my - ry) * 0.18;
-      if (ring) {
-        ring.style.left = rx + 'px';
-        ring.style.top = ry + 'px';
-      }
+      // Much higher smoothing factor so the ring keeps up with fast motion
+      rx += (mx - rx) * 0.35;
+      ry += (my - ry) * 0.35;
+      if (ring) ring.style.transform = `translate3d(${rx}px, ${ry}px, 0) translate(-50%, -50%)`;
       raf = requestAnimationFrame(loop);
     };
 
     window.addEventListener('mousemove', onMove);
+    window.addEventListener('mouseleave', onLeave);
     raf = requestAnimationFrame(loop);
 
-    const hoverables = document.querySelectorAll('[data-hover], a, button');
-    const enter = () => document.body.classList.add('hovering');
-    const leave = () => document.body.classList.remove('hovering');
-    hoverables.forEach((el) => {
-      el.addEventListener('mouseenter', enter);
-      el.addEventListener('mouseleave', leave);
-    });
+    // Hover effect delegation — catches elements added later too
+    const onOver = (e) => {
+      if (e.target.closest('a, button, [data-hover]')) {
+        document.body.classList.add('hovering');
+      }
+    };
+    const onOut = (e) => {
+      if (e.target.closest('a, button, [data-hover]')) {
+        document.body.classList.remove('hovering');
+      }
+    };
+    document.addEventListener('mouseover', onOver);
+    document.addEventListener('mouseout', onOut);
+
+    // Click pulse
+    const onDown = () => document.body.classList.add('clicking');
+    const onUp = () => document.body.classList.remove('clicking');
+    window.addEventListener('mousedown', onDown);
+    window.addEventListener('mouseup', onUp);
 
     return () => {
       window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('mouseleave', onLeave);
+      window.removeEventListener('mousedown', onDown);
+      window.removeEventListener('mouseup', onUp);
+      document.removeEventListener('mouseover', onOver);
+      document.removeEventListener('mouseout', onOut);
       cancelAnimationFrame(raf);
-      hoverables.forEach((el) => {
-        el.removeEventListener('mouseenter', enter);
-        el.removeEventListener('mouseleave', leave);
-      });
     };
   }, []);
 

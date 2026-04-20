@@ -46,7 +46,7 @@ export default function Hero() {
         </div>
         <h1>
           <span className="line"><span>I build</span></span>
-          <span className="line"><span className="italic">fast, beautiful</span></span>
+          <span className="line"><span className="italic">fast, stunning</span></span>
           <span className="line"><span>websites that</span></span>
           <span className="line"><span className="outline">convert.</span></span>
         </h1>

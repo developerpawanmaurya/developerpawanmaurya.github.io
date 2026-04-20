@@ -42,7 +42,7 @@ export default function About() {
       <div className="container">
         <div className="eyebrow reveal">About</div>
         <h2 className="section-title reveal">
-          I don't just write code — I ship products people love using.
+          I don’t just build websites. I engineer digital solutions that accelerate your business.
         </h2>
         <div className="about-grid">
           <div className="reveal">
