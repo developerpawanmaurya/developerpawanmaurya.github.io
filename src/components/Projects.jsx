@@ -109,57 +109,59 @@ export default function Projects() {
         {projects.map((p, i) => {
           const isOpen = openId === p.id;
           return (
-            <article className={`project reveal ${isOpen ? 'is-open' : ''}`} key={p.id}>
-              <div className={`project-visual ${p.bgClass}`}>
-                <div
-                  className="badge"
-                  style={p.badgeDark ? { color: '#333', borderColor: 'rgba(0,0,0,0.1)', background: 'rgba(0,0,0,0.05)' } : undefined}
-                >
-                  {p.badge}
+            <div className={`project-wrap ${isOpen ? 'is-open' : ''}`} key={p.id}>
+              <article className="project reveal">
+                <div className={`project-visual ${p.bgClass}`}>
+                  <div
+                    className="badge"
+                    style={p.badgeDark ? { color: '#333', borderColor: 'rgba(0,0,0,0.1)', background: 'rgba(0,0,0,0.05)' } : undefined}
+                  >
+                    {p.badge}
+                  </div>
+                  <ProjectMock project={p} />
                 </div>
-                <ProjectMock project={p} />
-              </div>
-              <div className="project-info">
-                <div className="project-meta">
-                  <span className="project-num">{String(i + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}</span>
-                  <span>·</span>
-                  <span>{p.meta}</span>
-                </div>
-                <h3>{p.title}</h3>
-                <p>{p.description}</p>
-                <div className="tech-list">
-                  {p.tech.map((t) => (<span key={t}>{t}</span>))}
-                </div>
+                <div className="project-info">
+                  <div className="project-meta">
+                    <span className="project-num">{String(i + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}</span>
+                    <span>·</span>
+                    <span>{p.meta}</span>
+                  </div>
+                  <h3>{p.title}</h3>
+                  <p>{p.description}</p>
+                  <div className="tech-list">
+                    {p.tech.map((t) => (<span key={t}>{t}</span>))}
+                  </div>
 
-                <div className="project-actions">
-                  {p.caseStudy && (
-                    <button
-                      type="button"
-                      className="project-link cs-toggle"
-                      data-hover
-                      aria-expanded={isOpen}
-                      onClick={() => toggle(p.id)}
-                    >
-                      {isOpen ? 'Hide case study' : 'Read case study'}
-                      <ChevronDown open={isOpen} />
-                    </button>
-                  )}
-                  {p.link && (
-                    <a
-                      href={p.link}
-                      className="project-link ghost"
-                      data-hover
-                      {...(p.external ? { target: '_blank', rel: 'noopener' } : {})}
-                    >
-                      {p.linkLabel}
-                      {p.external ? <ArrowOut /> : <ArrowRight />}
-                    </a>
-                  )}
+                  <div className="project-actions">
+                    {p.caseStudy && (
+                      <button
+                        type="button"
+                        className="project-link cs-toggle"
+                        data-hover
+                        aria-expanded={isOpen}
+                        onClick={() => toggle(p.id)}
+                      >
+                        {isOpen ? 'Hide case study' : 'Read case study'}
+                        <ChevronDown open={isOpen} />
+                      </button>
+                    )}
+                    {p.link && (
+                      <a
+                        href={p.link}
+                        className="project-link ghost"
+                        data-hover
+                        {...(p.external ? { target: '_blank', rel: 'noopener' } : {})}
+                      >
+                        {p.linkLabel}
+                        {p.external ? <ArrowOut /> : <ArrowRight />}
+                      </a>
+                    )}
+                  </div>
                 </div>
-              </div>
+              </article>
 
               {isOpen && <CaseStudy cs={p.caseStudy} />}
-            </article>
+            </div>
           );
         })}
       </div>
