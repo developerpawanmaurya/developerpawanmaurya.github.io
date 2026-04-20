@@ -110,6 +110,43 @@ export default function ProjectMock({ project }) {
     );
   }
 
+  if (m.kind === 'leadsguru') {
+    return (
+      <div className="mock-browser">
+        <BrowserBar />
+        <div className="mock-browser-body">
+          <div style={{ fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: 18, color: '#0891b2' }}>Leads<span style={{ color: '#1e40af' }}>Guru</span></div>
+          <div className="mock-title" style={{ marginTop: 10, fontSize: 20 }}>More leads. Less guesswork.</div>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 6, marginTop: 10 }}>
+            <div style={{ height: 36, background: '#e0f2fe', borderRadius: 6 }}></div>
+            <div style={{ height: 36, background: '#bae6fd', borderRadius: 6 }}></div>
+            <div style={{ height: 36, background: '#0891b2', borderRadius: 6 }}></div>
+          </div>
+          <div className="mock-pill" style={{ background: '#0891b2' }}>Start Free Trial →</div>
+        </div>
+      </div>
+    );
+  }
+
+  if (m.kind === 'jajabor') {
+    return (
+      <div className="mock-browser">
+        <BrowserBar />
+        <div className="mock-browser-body">
+          <div style={{ fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: 18, color: '#ea580c', letterSpacing: '-0.02em' }}>jajabor<span style={{ color: '#f59e0b' }}>.io</span></div>
+          <div className="mock-title" style={{ marginTop: 10, fontSize: 20 }}>Wander, build, ship.</div>
+          <div className="mock-line med" style={{ marginTop: 8 }}></div>
+          <div className="mock-line short"></div>
+          <div style={{ display: 'flex', gap: 6, marginTop: 10 }}>
+            <div style={{ flex: 1, height: 34, background: '#fed7aa', borderRadius: 6 }}></div>
+            <div style={{ flex: 1, height: 34, background: '#fdba74', borderRadius: 6 }}></div>
+          </div>
+          <div className="mock-pill" style={{ background: '#ea580c' }}>Explore →</div>
+        </div>
+      </div>
+    );
+  }
+
   if (m.kind === 'branded') {
     return (
       <div className="mock-browser">

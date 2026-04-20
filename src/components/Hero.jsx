@@ -42,7 +42,7 @@ export default function Hero() {
       <div className="container">
         <div className="hero-tag">
           <span className="pulse"></span>
-          Available for full-time &amp; premium freelance · Based in Kanpur, India
+          Available for full-time &amp; premium freelance
         </div>
         <h1>
           <span className="line"><span>I build</span></span>

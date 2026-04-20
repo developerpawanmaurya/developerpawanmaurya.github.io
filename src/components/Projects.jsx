@@ -44,15 +44,17 @@ export default function Projects() {
               <div className="tech-list">
                 {p.tech.map((t) => (<span key={t}>{t}</span>))}
               </div>
-              <a
-                href={p.link}
-                className="project-link"
-                data-hover
-                {...(p.external ? { target: '_blank', rel: 'noopener' } : {})}
-              >
-                {p.linkLabel}
-                {p.external ? <ArrowOut /> : <ArrowRight />}
-              </a>
+              {p.link && (
+                <a
+                  href={p.link}
+                  className="project-link"
+                  data-hover
+                  {...(p.external ? { target: '_blank', rel: 'noopener' } : {})}
+                >
+                  {p.linkLabel}
+                  {p.external ? <ArrowOut /> : <ArrowRight />}
+                </a>
+              )}
             </div>
           </article>
         ))}

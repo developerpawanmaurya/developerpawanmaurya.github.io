@@ -6,7 +6,7 @@ function Row() {
   return (
     <span>
       {words.map((w, i) => (
-        <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: 60 }}>
+        <span key={i} style={{ display: 'inline-flex', alignItems: 'center' }}>
           <strong>{w}</strong>
           <span className="dot"></span>
         </span>
