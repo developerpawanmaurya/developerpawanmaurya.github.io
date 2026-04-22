@@ -6,8 +6,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 /**
  * Global GSAP enhancements. Runs once after the preloader has finished.
- *  - Blur fade-up / fade-down on all section titles, leads and eyebrows
- *  - Soft fade + rise on stat / skill / timeline / testimonial cards
+ *  - Blur fade-up on section headings
+ *  - Soft fade + rise on stat cards and testimonials (non-pinned)
  *  - Parallax on project visuals
  *  - Magnetic pull on .btn and [data-magnetic] elements
  *  - Horizontal pin-scroll on [data-h-scroll] sections (desktop)
@@ -18,29 +18,6 @@ export function useGsapEnhancements({ enabled = true } = {}) {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const ctx = gsap.context(() => {
-      // Blur fade-up / fade-down — ONLY for section headings
-      const blurFadeUp = (el, { start = 'top 85%', y = 60, blur = 16, duration = 1.05, delay = 0 } = {}) => {
-        gsap.fromTo(
-          el,
-          { y, opacity: 0, filter: `blur(${blur}px)` },
-          {
-            y: 0,
-            opacity: 1,
-            filter: 'blur(0px)',
-            duration,
-            ease: 'power3.out',
-            delay,
-            immediateRender: false,
-            scrollTrigger: {
-              trigger: el,
-              start,
-              toggleActions: 'play reverse play reverse',
-            },
-          }
-        );
-      };
-
-      // Simple fade-up (no blur) for supporting elements
       const fadeUp = (el, { start = 'top 88%', y = 28, duration = 0.8, delay = 0 } = {}) => {
         gsap.fromTo(
           el,
@@ -55,17 +32,13 @@ export function useGsapEnhancements({ enabled = true } = {}) {
             scrollTrigger: {
               trigger: el,
               start,
-              toggleActions: 'play reverse play reverse',
+              toggleActions: 'play none none reverse',
             },
           }
         );
       };
 
-      // Headings — blur fade up/down.
-      // If the heading is inside a pinned h-scroll section OR a section
-      // that might already be at the top when the hook mounts, we anchor
-      // the ScrollTrigger to the nearest section instead of the heading
-      // itself, and use a start that fires before the pin engages.
+      // Headings — blur fade up
       document.querySelectorAll('.section-title').forEach((el) => {
         const pinnedSection = el.closest('.h-scroll-section, .testimonials-wrap');
         const trigger = pinnedSection || el;
@@ -89,7 +62,6 @@ export function useGsapEnhancements({ enabled = true } = {}) {
         );
       });
 
-      // Supporting copy — clean fade-up, no blur
       document.querySelectorAll('.section-lead').forEach((el) => {
         const pinnedSection = el.closest('.h-scroll-section, .testimonials-wrap');
         const trigger = pinnedSection || el;
@@ -160,18 +132,8 @@ export function useGsapEnhancements({ enabled = true } = {}) {
         });
       });
 
-      // Skill and timeline cards — clean fade-up
-      document.querySelectorAll('.skill-card').forEach((el, i) => {
-        fadeUp(el, { y: 30, duration: 0.75, delay: (i % 4) * 0.06, start: 'top 88%' });
-      });
-      document.querySelectorAll('.tl-item').forEach((el, i) => {
-        fadeUp(el, { y: 24, duration: 0.75, delay: (i % 3) * 0.06, start: 'top 85%' });
-      });
-
-      // Testimonials
-      document.querySelectorAll('.testimonial-card').forEach((el, i) => {
-        fadeUp(el, { y: 26, duration: 0.8, delay: (i % 3) * 0.08, start: 'top 90%' });
-      });
+      // NOTE: removed .skill-card fade — was re-triggering after horizontal pin ended.
+      // NOTE: removed .tl-item fade — no longer exists; timeline uses .htimeline-item inside pinned h-scroll.
 
       // Magnetic buttons
       const magnets = document.querySelectorAll('.btn, [data-magnetic]');
@@ -207,7 +169,8 @@ export function useGsapEnhancements({ enabled = true } = {}) {
             ease: 'none',
             scrollTrigger: {
               trigger: section,
-              start: 'top top',              end: () => `+=${getMaxX() + window.innerHeight * 0.35}`,
+              start: 'top top',
+              end: () => `+=${getMaxX() + window.innerHeight * 0.35}`,
               pin: true,
               scrub: 1,
               anticipatePin: 1,

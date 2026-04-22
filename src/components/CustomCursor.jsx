@@ -28,7 +28,6 @@ export default function CustomCursor() {
       mx = e.clientX;
       my = e.clientY;
       show();
-      // Dot snaps instantly using GPU-accelerated transform
       if (dot) dot.style.transform = `translate3d(${mx}px, ${my}px, 0) translate(-50%, -50%)`;
     };
 
@@ -39,7 +38,6 @@ export default function CustomCursor() {
     };
 
     const loop = () => {
-      // Much higher smoothing factor so the ring keeps up with fast motion
       rx += (mx - rx) * 0.35;
       ry += (my - ry) * 0.35;
       if (ring) ring.style.transform = `translate3d(${rx}px, ${ry}px, 0) translate(-50%, -50%)`;
@@ -50,14 +48,16 @@ export default function CustomCursor() {
     window.addEventListener('mouseleave', onLeave);
     raf = requestAnimationFrame(loop);
 
-    // Hover effect delegation — catches elements added later too
+    // Hover effect delegation — catches elements added later too.
+    // Headings (h1..h4) also trigger the hover state.
+    const HOVER_SEL = 'a, button, [data-hover], h1, h2, h3, h4';
     const onOver = (e) => {
-      if (e.target.closest('a, button, [data-hover]')) {
+      if (e.target.closest(HOVER_SEL)) {
         document.body.classList.add('hovering');
       }
     };
     const onOut = (e) => {
-      if (e.target.closest('a, button, [data-hover]')) {
+      if (e.target.closest(HOVER_SEL)) {
         document.body.classList.remove('hovering');
       }
     };

@@ -12,7 +12,6 @@ export default function Testimonials() {
     const rowB = rowBRef.current;
     if (!rowA || !rowB) return;
 
-    // Auto-scroll marquee rows in opposite directions
     let rafA, rafB;
     let xA = 0;
     let xB = -rowB.scrollWidth / 2;
@@ -61,11 +60,9 @@ export default function Testimonials() {
     };
   }, []);
 
-  // Split into two rows
   const half = Math.ceil(testimonials.length / 2);
   const rowA = testimonials.slice(0, half);
   const rowB = testimonials.slice(half);
-  // Duplicate for seamless loop
   const loopA = [...rowA, ...rowA];
   const loopB = [...rowB, ...rowB];
 

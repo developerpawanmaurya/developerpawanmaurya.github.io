@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { projects } from '../data/projects.js';
 import ProjectMock from './ProjectMock.jsx';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const ArrowOut = () => (
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -96,6 +97,17 @@ export default function Projects() {
   const [openId, setOpenId] = useState(null);
 
   const toggle = (id) => setOpenId((prev) => (prev === id ? null : id));
+
+  // Refresh ScrollTrigger so pinned sections below recalculate their start
+  // position after the case study changes the Projects section height.
+  useEffect(() => {
+    const id = requestAnimationFrame(() => {
+      if (ScrollTrigger && typeof ScrollTrigger.refresh === 'function') {
+        ScrollTrigger.refresh();
+      }
+    });
+    return () => cancelAnimationFrame(id);
+  }, [openId]);
 
   return (
     <section id="work">
