@@ -14,7 +14,7 @@ export default function Hero() {
         ease: 'power3.out',
         delay: 0.15,
       });
-      gsap.from('.hero-tag, .hero-sub, .hero-ctas', {
+      gsap.from('.hero-sub, .hero-ctas', {
         y: 24,
         opacity: 0,
         duration: 0.9,
@@ -40,10 +40,6 @@ export default function Hero() {
       <div className="hero-bg"></div>
       <div className="grain"></div>
       <div className="container">
-        <div className="hero-tag">
-          <span className="pulse"></span>
-          Available for full-time &amp; premium freelance
-        </div>
         <h1>
           <span className="line"><span>I build</span></span>
           <span className="line"><span className="italic">fast, stunning</span></span>
@@ -73,3 +69,4 @@ export default function Hero() {
     </header>
   );
 }
+
