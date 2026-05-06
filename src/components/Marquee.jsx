@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 
 const words = [
+  'AI Integration', 'LLM Workflows', 'Prompt Engineering',
   'WordPress', 'React', 'Next.js', 'PHP', 'Headless CMS', 'GSAP',
   'Tailwind', 'GraphQL', 'WooCommerce', 'Gutenberg', 'Performance', 'SEO',
 ];

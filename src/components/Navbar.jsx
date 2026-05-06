@@ -17,6 +17,7 @@ export default function Navbar() {
       </a>
       <div className="nav-links">
         <a href="#work" data-hover>Work</a>
+        <a href="#tools" data-hover>Tools</a>
         <a href="#about" data-hover>About</a>
         <a href="#skills" data-hover>Skills</a>
         <a href="#experience" data-hover>Experience</a>

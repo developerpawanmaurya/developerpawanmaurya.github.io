@@ -42,21 +42,21 @@ export default function About() {
       <div className="container">
         <div className="eyebrow reveal">About</div>
         <h2 className="section-title reveal">
-          I don’t just build websites. I engineer digital solutions that accelerate your business.
+          I don't just build websites. I engineer AI-augmented digital solutions that accelerate your business.
         </h2>
         <div className="about-grid">
           <div className="reveal">
             <p>
-              Six years ago I started as an intern writing HTML and jQuery. Today, I lead end-to-end web builds — from gathering stakeholder requirements and architecting scalable WordPress or React solutions, to shipping, monitoring, and squeezing every last millisecond out of page loads.
+              Six years ago I started as an intern writing HTML and jQuery. Today, I lead end-to-end web builds and run engineering teams — from gathering stakeholder briefs and architecting scalable WordPress or React solutions, to shipping, monitoring, and squeezing every last millisecond out of page loads.
             </p>
             <p>
-              At <strong>PolicyAdvisor</strong>, I keep the primary site at <strong>99.9% uptime</strong>, rebuilt the blog to improve load time <strong>~30%</strong> and lift Lighthouse by <strong>25 points</strong>, and shipped custom PHP plugins that turned marketing ideas into real revenue tools.
+              At <strong>PolicyAdvisor</strong>, I sustain <strong>99.9% uptime</strong>, drove a site-wide overhaul that cut load time by <strong>~30%</strong> and lifted Lighthouse by <strong>25 points</strong>, and pioneered <strong>LLM-powered automation</strong> inside the WordPress stack — turning prompt engineering into shipped, revenue-driving features.
             </p>
             <p>
-              Before that I mentored junior devs at Memorres, freelanced across healthcare, ed-tech and e-commerce, and cut my teeth at Infinity Pillars building an ed-tech platform from scratch.
+              I'm equally comfortable writing PHP and React, leading a team of devs through Agile sprints, and translating senior-stakeholder asks into clean technical roadmaps. Before PolicyAdvisor I mentored juniors at Memorres, freelanced across healthcare, ed-tech and e-commerce, and built an ed-tech platform from scratch at Infinity Pillars.
             </p>
             <p>
-              <strong>What I care about:</strong> performance budgets, accessibility, clean PHP/JS, a design system that doesn't collapse under pressure, and shipping on time.
+              <strong>What I care about:</strong> performance budgets, accessibility, clean architecture, AI-driven workflows that actually save hours, and a design system that doesn't collapse under pressure.
             </p>
             <div className="signature">— Pawan</div>
           </div>

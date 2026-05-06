@@ -47,9 +47,11 @@ export default function Hero() {
           <span className="line"><span className="outline">convert.</span></span>
         </h1>
         <p className="hero-sub">
-          I'm <strong>Pawan</strong> — a Senior Web Developer with <strong>6+ years</strong> of
-          experience shipping production-grade WordPress, React, and headless CMS builds for
-          healthcare, fintech, ed-tech and e-commerce. Currently at <strong>PolicyAdvisor</strong>.
+          I'm <strong>Pawan</strong> — a Lead WordPress Developer & Engineering Manager with{' '}
+          <strong>6+ years</strong> shipping production-grade WordPress, React, and headless CMS
+          builds — now embedding <strong>AI-driven automation and LLM workflows</strong> into
+          insurtech, healthcare, ed-tech and e-commerce. Currently leading at{' '}
+          <strong>PolicyAdvisor</strong>.
         </p>
         <div className="hero-ctas">
           <a href="#work" className="btn btn-primary" data-hover>
