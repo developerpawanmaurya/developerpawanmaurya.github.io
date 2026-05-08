@@ -27,7 +27,7 @@ export const tools = [
     desc: "An interactive 'guess what's true' mini-game about me. Built as a fun, memorable alternative to the typical About page — recruiters seem to like it.",
     tags: ['JavaScript', 'Animation', 'Game UX', 'Storytelling'],
     accent: 'amber',
-    href: 'https://developerpawanmaurya.github.io/About-me-Game/',
+    href: 'https://developerpawanmaurya.github.io/About-me-game/',
     glyph: '🎮',
   },
   {
