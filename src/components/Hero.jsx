@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import ParticleBackground from './ParticleBackground';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -38,6 +39,7 @@ export default function Hero() {
   return (
     <header className="hero" id="top">
       <div className="hero-bg"></div>
+      <ParticleBackground />
       <div className="grain"></div>
       <div className="container">
         <h1>
