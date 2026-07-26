@@ -366,4 +366,39 @@ export const projects = [
       ],
     },
   },
+  {
+    id: 11,
+    badge: 'Health & Wellness',
+    bgClass: 'pv-drift',
+    meta: 'HealthTech · Shift Workers',
+    title: 'Drift',
+    description:
+      "A sleep coach built for the 4am clock-out. Drift builds sleep plans around your actual roster — not a textbook 9-to-5 — helping shift workers manage sleep debt and anchor sleep.",
+    tech: ['Next.js', 'React', 'Tailwind', 'UX Design', 'Sleep Science'],
+    link: 'https://developerpawanmaurya.github.io/drift-app/',
+    linkLabel: 'Visit site',
+    external: true,
+    mock: {
+      kind: 'drift',
+    },
+    caseStudy: {
+      role: 'Frontend Developer',
+      timeline: '2024',
+      overview:
+        "Drift is a sleep coach app designed specifically for shift workers — night nurses, long-haul drivers, paramedics, and anyone whose week doesn't end on Friday. Traditional sleep tools assume a 9-to-5 schedule, which fails for non-standard hours.",
+      challenge:
+        "Generic sleep advice is built for someone else's day. Telling a night-shift worker to wind down at 9pm when they clock in at 9pm is useless. The platform needed to dynamically adapt sleep plans, naps, and anchor sleep around shifting rosters while avoiding the 'shame loop' of missed goals.",
+      approach: [
+        "Built a dynamic scheduling engine that adapts to user-inputted rosters (e.g., a 4-night rotation followed by 3 days off).",
+        "Designed a calming, dark-mode-first interface (since users are often checking it in the dark or early morning) with soft typography.",
+        "Implemented a clear visualization for 'Sleep debt' and 'Anchor sleep' to help users understand their recovery progress.",
+        "Created a mobile-first, app-like experience on the web to ensure it feels native to users on the go."
+      ],
+      stack: ['Next.js', 'Tailwind CSS', 'React', 'Framer Motion'],
+      outcomes: [
+        "A highly tailored experience that actually makes sense for shift workers.",
+        "A calm, non-judgmental interface that coaches rather than just tracks.",
+      ],
+    },
+  },
 ];

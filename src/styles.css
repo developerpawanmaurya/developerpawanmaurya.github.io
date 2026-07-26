@@ -446,6 +446,7 @@ section { padding: 60px 0; position: relative; }
 .pv-cosmetics { background: linear-gradient(135deg, #1a0a1a, #3d1a3d); }
 .pv-leadsguru { background: linear-gradient(135deg, #1e40af, #0891b2); }
 .pv-jajabor { background: linear-gradient(135deg, #ea580c, #f59e0b); }
+.pv-drift { background: linear-gradient(135deg, #27272a, #18181b); }
 
 /* SKILLS */
 .skills-wrap { background: var(--bg-2); }
